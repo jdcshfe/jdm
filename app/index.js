@@ -61,7 +61,6 @@ var jdmGenerator = yeoman.generators.Base.extend({
     writing: function() {
         var _self = this;
         var tasksPath = this.sourceRoot() + '/tasks/';
-        var srcPath = this.sourceRoot() + '/src/';
         function dir(ff) {
             fs.readdir(ff, function(err, files) {
                 if (err) {

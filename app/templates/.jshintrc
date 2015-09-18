@@ -1,0 +1,29 @@
+{
+  "sub":true,         //person['name'] vs. person.name两种访问方式均可
+  "laxcomma":true,    //值为true时，允许逗号出现在行首的换行方式；值为false时，会给出警告.
+  "asi": false,        //控制“缺少分号”的警告
+  "boss": true,       //这个选项抑制某些可能正确的警告信息。
+  "browser": true,    //预定义全局变量 document，navigator，FileReader 等
+  "loopfunc":true,    //这个选项用于抑制循环中有函数的警告信息。在循环内定义函数可能导致 bug
+  "expr":true,        //这个选项用于抑制表达式相关的一些错误信息。
+  "bitwise": true,    //这个选项用于禁止使用位运算符，如^(XOR)，|(OR)以及其他位运算符。
+  "curly": true,      //这个选项要求在对循环代码块和条件语句中始终使用大括号。
+  "immed": true,      //表示立即执行函数必须用括号包起来 `(function () { } ());`
+  "latedef": false,   //true:这个选项用于禁止用户在变量定义之前使用。
+  "unused": true,     //true:禁止定义变量却不使用
+  "eqeqeq": true,     //true表示判断相等时，必须使用 ===
+  "eqnull": false,    //作用：值为false时，如果代码中使用"=="来比较变量与null，则JSHint会给出警告
+  "newcap": true,     //这个选项要求函数首字母大写
+  "noarg": true,      //表示禁止使用 `arguments.caller` 和 `arguments.callee`
+  "undef": true,      //这个选项用于禁止使用未显示声明的变量。
+  "proto": true,      //抑制使用 __proto__ 属性的警告信息。
+  "strict": false,    //'use strict'模式是否开启，此项可通过全局设置关闭
+  "smarttabs": true,  //抑制混合使用 tabs 和空格的警告信息。
+  "noempty": true,    //表示禁止出现空的代码块 `{ }`
+  "quotmark": true,   //是引号的使用规则，有以下四个选项：false、true、single、double
+  "devel" : true      //alert、console等是否可用，通常在生成环境，关闭改选项用以来检查代码是否还残留debug信息
+
+
+
+  //配置说明：https://github.com/basecss/jshint-doc-cn/blob/master/options.md
+}

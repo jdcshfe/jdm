@@ -92,14 +92,14 @@ var jdmGenerator = yeoman.generators.Base.extend({
     },
     // npm bower install
     install: function() {
-        //this.npmInstall(['mkdirp','yosay','fs'], {'saveDev': true});
-        //this.installDependencies({
-        //    bower: false,
-        //    npm: true,
-        //    callback: function () {
-        //        console.log('NPM install ready!');
-        //    }
-        //});
+        this.npmInstall(['mkdirp','yosay','fs'], {'saveDev': true});
+        this.installDependencies({
+            bower: false,
+            npm: true,
+            callback: function () {
+                console.log('NPM install ready!');
+            }
+        });
     },
     // end
     end: function() {

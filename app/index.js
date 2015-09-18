@@ -43,6 +43,17 @@ var jdmGenerator = yeoman.generators.Base.extend({
         this.copy('.jshintrc', '.jshintrc');
         this.copy('.gitignore', '.gitignore');
     },
+    // npm bower install
+    install: function() {
+        this.npmInstall(['mkdirp','yosay','fs'], {'saveDev': true});
+        this.installDependencies({
+            bower: false,
+            npm: true,
+            callback: function () {
+                console.log('NPM install ready!');
+            }
+        });
+    },
     // 创建文件夹
     createFolders: function() {
         mkdirp('src');
@@ -89,17 +100,6 @@ var jdmGenerator = yeoman.generators.Base.extend({
     // 解决冲突
     conflicts: function() {
 
-    },
-    // npm bower install
-    install: function() {
-        this.npmInstall(['mkdirp','yosay','fs'], {'saveDev': true});
-        this.installDependencies({
-            bower: false,
-            npm: true,
-            callback: function () {
-                console.log('NPM install ready!');
-            }
-        });
     },
     // end
     end: function() {

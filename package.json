@@ -1,0 +1,29 @@
+{
+  "name": "generator-jdm",
+  "version": "0.0.7",
+  "description": "jd mobile project generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "app",
+    "router"
+  ],
+  "keywords": [
+    "yeoman-generator",
+    "jdm"
+  ],
+  "author": "willhu",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "dependencies": {
+    "yeoman-generator": "^0.20.3"
+  },
+  "devDependencies": {
+    "yeoman-generator": "^0.20.3"
+  }
+}

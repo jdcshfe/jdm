@@ -1,4 +1,4 @@
-# generator-jdm 
+# generator-jdm
 
 > 一个基于gulp的前端自动化流程
 

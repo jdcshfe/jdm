@@ -1,6 +1,6 @@
 {
   "name": "generator-jdm",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "jd mobile project generator",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "none"
+    "url": "https://github.com/jdcshfe/jdm"
   },
   "dependencies": {
     "yeoman-generator": "^0.20.3"

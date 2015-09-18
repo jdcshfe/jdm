@@ -1,0 +1,7 @@
+node_modules/
+bower_modules/
+sass-cahce/
+/*.log
+.idea/
+.git/
+/.DS_Store

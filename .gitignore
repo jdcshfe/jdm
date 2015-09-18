@@ -1,7 +1,6 @@
-/node_modules
-node_modules
-/bower_modules
-/sass-cahce
+node_modules/
+bower_modules/
+sass-cahce/
 /*.log
 .idea/
 .git/

@@ -11,6 +11,9 @@ var fs = require('fs');
 
 
 var jdmGenerator = yeoman.generators.Base.extend({
+    initializing: function () {
+        this.pkg = require('../package.json');
+    },
     // 用户输入部分
     prompting: function() {
         var done = this.async();
@@ -46,7 +49,6 @@ var jdmGenerator = yeoman.generators.Base.extend({
     // npm bower install
     install: function() {
         var done = this.async();
-        this.npmInstall(['mkdirp','yosay','fs'], {'saveDev': true}, function() {done();});
         this.installDependencies({
             bower: false,
             npm: true,

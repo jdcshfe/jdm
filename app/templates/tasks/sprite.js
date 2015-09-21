@@ -15,23 +15,23 @@ module.exports = function (gulp, $, settings) {
                 if (spriteFile.indexOf(".") < 0) {
                     if (settings.imgRetina == true) {
                         var spriteData = gulp.src(settings.srcPath + "/img/sprite/" + spriteFile + "/*.png")
-                            .pipe($.cache($.spritesmith({
+                            .pipe($.spritesmith({
                                 retinaSrcFilter: [settings.srcPath + "/img/sprite/" + spriteFile + "/*@2x.png"],
                                 imgName: spriteFile + ".png",
                                 retinaImgName: spriteFile + "@2x.png",
                                 cssName: "_" + spriteFile + ".scss",
                                 padding: 5
-                            }))
+                            })
                         );
                         spriteData.img.pipe(gulp.dest(settings.srcPath + "/img/sprite/"));
                         spriteData.css.pipe(gulp.dest(settings.srcPath + "/stylesheet/scss/sprite/"));
                     } else {
                         var spriteData = gulp.src(settings.srcPath + "/img/sprite/" + spriteFile + "/*.png")
-                            .pipe($.cache($.spritesmith({
+                            .pipe($.spritesmith({
                                 imgName: spriteFile + ".png",
                                 cssName: "_" + spriteFile + ".scss",
                                 padding: 5
-                            }))
+                            })
                         );
                         spriteData.img.pipe(gulp.dest(settings.srcPath + "/img/sprite/"));
                         spriteData.css.pipe(gulp.dest(settings.srcPath + "/stylesheet/scss/sprite/"));

@@ -10,7 +10,7 @@ module.exports = function (gulp, $, settings) {
     // normal
     gulp.task('concat-js-normal', function() {
         return gulp.src([
-            settings.srcPath + '/js/page/*.js',
+            settings.srcPath + '/js/demo/*.js',
             '!' + settings.srcPath + '/js/**/*.min.js',
             '!' + settings.srcPath + '/js/min/*.js',
             '!' + settings.srcPath + '/js/' + settings.jsName,

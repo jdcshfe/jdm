@@ -51,10 +51,7 @@ require('./tasks/jshint')(gulp, $, settings);
 // uglify js
 // command:  gulp uglify
 require('./tasks/uglify')(gulp, $, settings);
-/* concat css & js */
-// concat css & js
-// command:  gulp concat-js  gulp concat-css
-//require('./tasks/concat')(gulp, $, settings);
+
 /* images tasks */
 // sprite images
 // command:  gulp sprite
@@ -64,7 +61,8 @@ require('./tasks/sprite')(gulp, $, settings);
 require('./tasks/imagemin')(gulp, $, settings);
 
 /* tools */
-
+// command:  gulp cleanDist cleanDemo
+require('./tasks/clean')(gulp, $, settings);
 // command:  gulp clear-cache
 require('./tasks/cache')(gulp, $, settings);
 // browserSync
@@ -74,7 +72,10 @@ require('./tasks/browsersync')(gulp, $, settings);
 require('./tasks/copy')(gulp, $, settings);
 // usemin
 require('./tasks/usemin')(gulp, $, settings);
-// TODO: add gulp-sftp
+//TODO sftp active mode have same bug to fixed
+// sftp
+// command:  gulp ftp
+require('./tasks/ftp')(gulp, $, settings);
 
 // tasks
 // imagemin&sprite
@@ -85,7 +86,7 @@ gulp.task('img', [
 // just watch js & scss
 gulp.task('watch', function() {
     gulp.watch(settings.srcPath + '/**/*.scss', ['sass']);
-    gulp.watch([settings.srcPath + '/js/page/*.js', settings.srcPath + '/component/**/*.js'], ['jshint']);
+    gulp.watch([settings.srcPath + '/js/demo/*.js', settings.srcPath + '/component/**/*.js'], ['jshint']);
 });
 // watch & browsersunc
 gulp.task('default',[
@@ -105,5 +106,10 @@ gulp.task('build', [
 
 // preview dist floder
 gulp.task('serve', [
+    'browsersync:dist'
+]);
+
+// clean demo
+gulp.task('clean-demo', [
     'browsersync:dist'
 ]);

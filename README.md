@@ -15,7 +15,6 @@ $ npm install generator-jdm
 ## CLI
 
 首先你要安装好yeoman
-  
 ```
 $ npm install yo -g
 ```
@@ -27,7 +26,6 @@ $ npm install yo -g
 ```
 $ npm install generator-jdm -g
 ```
-
 <img src="img/generator-jdm.png"></img>
 
 然后执行 yo jdm  就会自动搭好脚手架并装好npm报了
@@ -77,7 +75,6 @@ $ gulp build
 ```
 $ gulp img
 ```
-
       1. 将src/img/sprite下的文件夹的.png图片，拼接成sprite图片;
          默认生成两种拼接图片：一是以图片所在文件夹的文件夹名命名的.png图片，另一种是，以文件夹命名@2x.png的拼接图,如图示;
 

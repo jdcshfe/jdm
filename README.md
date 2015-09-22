@@ -19,18 +19,40 @@ $ npm install generator-jdm
 ```
 $ npm install yo -g
 ```
+<img src="img/yoDoctor.png"></img>
+<img src="img/yodone.png" alt="全局yo 安装"></img>
+
 然后执行generator-jdm
  
 ```
 $ npm install generator-jdm -g
 ```
 
+<img src="img/generator-jdm.png"></img>
+
 然后执行 yo jdm  就会自动搭好脚手架并装好npm报了
 
 ```
 $ yo jdm
 ```
-<p>Yan Liping</p>
+<img src="img/welcome.png" alt="yo success!">
+
+
+```
+执行 yo jdm 并出现以上欢迎界面，接着就会提醒“what your app name？”
+```
+<b>pS:</b> 
+     该处命名可以与根目录相同不会覆盖本目录，也可以写其他的名字
+<img src="img/yoJdm.png"></img>
+
+如果提醒出现
+<b>I`m all done. Running <i>npm install</i> 
+for you to install the required dependencies.If this fails,try running the command yourself</b>
+      时，需要执行
+
+```
+$ npm install 
+```
 
 ### 功能
 ```
@@ -56,8 +78,30 @@ $ gulp build
 $ gulp img
 ```
 
-      1. 将src/img/sprite下的文件夹的png 拼接css sprite并输出sass文件(congif.js中配置是否输出@2x)
-      2. 压缩所有image
+      1. 将src/img/sprite下的文件夹的.png图片，拼接成sprite图片;
+         默认生成两种拼接图片：一是以图片所在文件夹的文件夹名命名的.png图片，另一种是，以文件夹命名@2x.png的拼接图,如图示;
+
+命令成功显示：
+<br>
+<img src="img/img.png" alt=""></img><br>
+文件夹下显示:
+<br>
+<img src="img/gulp_img.png" alt="生成图片"></img>
+<br>
+<b>pS:</b>
+      1、控制@2x类型的图片是否生成可通过更改
+<strong>config.js</strong><font color="red"> imgRetina</font>
+      属性值来控制是否生成@2x图片;
+      <br/>       
+      2、如果  <b>imgRetina</b>  属性设为true,然而要被拼接的.png与@2x.png的图片不是成对出现的话，会提示如下错误(提示为：文件夹下有5个普通模式的图片，有4个高清图片，图片个数不匹配，因此提示该错误)：
+      <br/>
+<img src="img/imgRetina.png" alt="imgRetina为true时的错误提示">
+      <br>
+      如果    <b>imgRetina:false</b>  时，编译将会正常，但文件夹下的显示如下：
+      <br>
+<img src="img/imgRetina_false.png" alt="imgRetina为false时结果"> 
+
+      2. 压缩所有的image,并将压缩后的图片复制到 dist/img/sprite中。
 
 ```
 $ gulp run
@@ -70,6 +114,7 @@ $ gulp run
 ```
 |
 +- src
+|   +- html
 |   +- css
 |   +- scss
 |   +- img
@@ -79,6 +124,7 @@ $ gulp run
 |   +- component
 |   - index.html
 +- dist
+|   +- html
 |   +- css
 |   +- img
 |       +- sprite

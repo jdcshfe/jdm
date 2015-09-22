@@ -15,7 +15,7 @@ $ npm install generator-jdm
 ## CLI
 
 首先你要安装好yeoman
-
+  
 ```
 $ npm install yo -g
 ```

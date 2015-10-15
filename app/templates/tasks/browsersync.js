@@ -11,7 +11,7 @@ module.exports = function (gulp, $, settings) {
     var files = [
         settings.srcPath + '/**/*.css',
         settings.srcPath + '/**/*.js',
-        settings.srcPath + '/html/**/*.html'
+        settings.srcPath + '/**/*.html'
     ];
     gulp.task('browsersync', function() {
         //if (settings.server.proxy && settings.server.proxy !== '') {
@@ -25,7 +25,7 @@ module.exports = function (gulp, $, settings) {
         //}
         browserSync.init(files,{
             server: {
-                baseDir: './src/'
+                baseDir: './'
             },
             browser: settings.browser
         });

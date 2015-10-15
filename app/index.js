@@ -26,7 +26,7 @@ var jdmGenerator = yeoman.generators.Base.extend({
             },
             /*{
                 type:       'confirm',
-                name:       'addJdMpbo',
+                name:       'addJdMobi',
                 message:    'Would you like to include jdMobi?',
                 default:    true
             }*/],
@@ -42,15 +42,18 @@ var jdmGenerator = yeoman.generators.Base.extend({
             appName: this.appName
         };
         this.template('package.json', 'package.json', context);
-        this.copy('gulpfile.js', 'gulpfile.js');
-        this.copy('.jshintrc', '.jshintrc');
-        //this.copy('.gitignore', '.gitignore');
+        this.template('bower.json', 'bower.json');
+        this.template('gulpfile.js', 'gulpfile.js');
+        this.template('.jshintrc', '.jshintrc');
+        this.template('.gitignore', '.gitignore');
+        this.template('.bowerrc', '.bowerrc');
+
     },
     // npm bower install
     install: function() {
         var done = this.async();
         this.installDependencies({
-            bower: false,
+            bower: true,
             npm: true,
             callback: function () {
                 console.log('NPM install ready!');
@@ -66,7 +69,6 @@ var jdmGenerator = yeoman.generators.Base.extend({
         mkdirp('src/img');
         mkdirp('src/img/sprite');
         mkdirp('src/js');
-        mkdirp('src/js/lib');
         mkdirp('src/html');
         mkdirp('src/component');
         mkdirp('tasks');

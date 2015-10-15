@@ -17,7 +17,7 @@
  *      4. css和js生成版本
  *      5. 自动替换HTML中的引用css/js文件至最新版
  * 三、启动 gulp img
- *      1. 将src/img/sprite下的文件夹的png 拼接css sprite并输出sass文件(congif.js中配置是否输出@2x)
+ *      1. 将src/img/sprite下的文件夹的png 拼接css sprite并输出sass文件(config.js中配置是否输出@2x)
  *      2. 压缩所有image
  * 四、启动 gulp run
  *      执行 gulp default相同任务，除去监听和自动刷新
@@ -84,12 +84,12 @@ gulp.task('img', [
     'imagemin'
 ]);
 // just watch js & scss
-gulp.task('watch', function() {
+gulp.task('watch', function () {
     gulp.watch(settings.srcPath + '/**/*.scss', ['sass']);
     gulp.watch([settings.srcPath + '/js/demo/*.js', settings.srcPath + '/component/**/*.js'], ['jshint']);
 });
 // watch & browsersunc
-gulp.task('default',[
+gulp.task('default', [
     'browsersync',
     'watch'
 ]);
@@ -100,16 +100,16 @@ gulp.task('run', [
 ]);
 // build to dist
 gulp.task('build', [
-    'copy-img',
+    'imagemin',
     'usemin'
 ]);
 
 // preview dist floder
-gulp.task('serve', [
-    'browsersync:dist'
-]);
-
-// clean demo
-gulp.task('clean-demo', [
-    'browsersync:dist'
-]);
+//gulp.task('serve', [
+//    'browsersync:dist'
+//]);
+//
+//// clean demo
+//gulp.task('clean-demo', [
+//    'browsersync:dist'
+//]);

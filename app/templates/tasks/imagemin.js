@@ -7,8 +7,8 @@
  */
 
 module.exports = function (gulp, $, settings) {
-    gulp.task('imagemin', function() {
-        return gulp.src(settings.srcPath + '/img/**/*.*')
+    gulp.task('imagemin', ['copyImg'], function() {
+        return gulp.src(settings.distPath + '/img/**/*.*')
                 .pipe($.cache($.imagemin({
                     optimizationLevel: settings.pngLevel,   //type：Number  default：3  range：0-7
                     progressive: true,      //type：Boolean default：false 无损压缩jpg图片

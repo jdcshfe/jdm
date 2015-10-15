@@ -7,8 +7,8 @@
  */
 
 module.exports = function (gulp, $, settings) {
-    gulp.task('jshint', function() {
-        return gulp.src(settings.srcPath + '/*.js')
+    gulp.task('jshint', function () {
+        return gulp.src(settings.srcPath + '/js/*.js')
             .pipe($.jshint())
             .pipe($.jshint.reporter('default'));
     });

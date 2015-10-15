@@ -21,7 +21,7 @@
   "smarttabs": true,  //抑制混合使用 tabs 和空格的警告信息。
   "noempty": true,    //表示禁止出现空的代码块 `{ }`
   "quotmark": true,   //是引号的使用规则，有以下四个选项：false、true、single、double
-  "devel" : true      //demo、console等是否可用，通常在生成环境，关闭改选项用以来检查代码是否还残留debug信息
+  "devel" : true      //alert、console等是否可用，通常在生成环境，关闭改选项用以来检查代码是否还残留debug信息
 
 
 

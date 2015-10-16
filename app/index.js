@@ -44,9 +44,9 @@ var jdmGenerator = yeoman.generators.Base.extend({
         this.template('package.json', 'package.json', context);
         this.template('bower.json', 'bower.json');
         this.template('gulpfile.js', 'gulpfile.js');
-        this.template('.jshintrc', '.jshintrc');
-        this.template('.gitignore', '.gitignore');
-        this.template('.bowerrc', '.bowerrc');
+        this.template('jshintrc', '.jshintrc');
+        this.template('gitignore', '.gitignore');
+        this.template('bowerrc', '.bowerrc');
 
     },
     // npm bower install

@@ -1,6 +1,6 @@
 {
   "name": "generator-jdm",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "jd mobile project generator",
   "main": "index.js",
   "scripts": {

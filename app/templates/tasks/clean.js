@@ -8,7 +8,7 @@
 
 module.exports = function (gulp, $, settings) {
     gulp.task('cleanDist', function() {
-        return gulp.src(settings.distPath, {read: false})
+        return gulp.src(settings.distPath + '/', {read: false})
             .pipe($.clean());
     });
 };

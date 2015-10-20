@@ -20,7 +20,7 @@ module.exports = function (gulp, $, settings) {
                  compressed: 全部压缩到一行
                  */
                 outputStyle: settings.sassOutputType
-            }).on('error', $.sass.logError))
+             }).on('error', $.sass.logError))
             .pipe($.sourcemaps.write())   // output sourcemaps
             .pipe(gulp.dest(settings.srcPath + '/css/'));
     });

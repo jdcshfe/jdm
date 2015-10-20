@@ -41,7 +41,7 @@ var settings = require('./tasks/config')();
 require('./tasks/sass')(gulp, $, settings);
 // minify css
 // command:  gulp minifycss
-//require('./tasks/minifycss')(gulp, $, settings);
+require('./tasks/minifycss')(gulp, $, settings);
 
 
 /* javascript tasks */
@@ -99,10 +99,15 @@ gulp.task('run', [
     'jshint'
 ]);
 // build to dist
-gulp.task('build', [
-    'imagemin',
-    'usemin'
-]);
+gulp.task('build', ['cleanDist'], function() {
+    gulp.run('usemin');
+    gulp.run('imagemin');
+});
+// build without usemin
+gulp.task('build2', ['cleanDist'], function() {
+    gulp.run('minifycss','uglify','imagemin');
+});
+
 
 // preview dist floder
 //gulp.task('serve', [

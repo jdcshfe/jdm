@@ -8,10 +8,7 @@
 
 module.exports = function (gulp, $, settings) {
     gulp.task('minifycss', ['concat-css'], function() {
-        return gulp.src([
-                    settings.srcPath + '/css/' + settings.uiCssName,
-                    settings.srcPath + '/css/' + settings.cssName
-                ])
+        return gulp.src(settings.srcPath + '/css/**/*.css')
                 //.pipe($.sourcemaps.init())  // sourcemaps init
                 .pipe($.minifyCss())
                 //.pipe($.sourcemaps.write()) // output sourcemaps

@@ -8,10 +8,7 @@
 
 module.exports = function (gulp, $, settings) {
     gulp.task('uglify', function() {
-            return gulp.src([
-                    settings.srcPath + '/js/' + settings.jsName,
-                    settings.srcPath + '/js/' + settings.uiJsName
-            ])
+            return gulp.src(settings.srcPath + '/js/**/*.js')
             .pipe($.uglify())
             .pipe(gulp.dest(settings.distPath + '/js/'));
     });

@@ -7,11 +7,9 @@
  */
 
 module.exports = function (gulp, $, settings) {
-    gulp.task('minifycss', ['concat-css'], function() {
+    gulp.task('minifycss', function() {
         return gulp.src(settings.srcPath + '/css/**/*.css')
-                //.pipe($.sourcemaps.init())  // sourcemaps init
                 .pipe($.minifyCss())
-                //.pipe($.sourcemaps.write()) // output sourcemaps
                 .pipe(gulp.dest(settings.distPath + '/css/'));
     });
 };

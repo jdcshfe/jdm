@@ -28,7 +28,12 @@
 /* global module */
 var gulp = require('gulp');
 var gulpLoadPlugins = require('gulp-load-plugins');
-var $ = gulpLoadPlugins();
+var $ = gulpLoadPlugins({
+    rename: {
+        'gulp-html-replace': 'htmlreplace',
+        'gulp-requirejs-optimize': 'requirejsOptimize'
+    }
+});
 
 /* config */
 var settings = require('./tasks/config')();
@@ -70,8 +75,8 @@ require('./tasks/cache')(gulp, $, settings);
 require('./tasks/browsersync')(gulp, $, settings);
 // copy
 require('./tasks/copy')(gulp, $, settings);
-// usemin
-require('./tasks/usemin')(gulp, $, settings);
+// require
+require('./tasks/require')(gulp, $, settings);
 //TODO sftp active mode have same bug to fixed
 // sftp
 // command:  gulp ftp
@@ -80,13 +85,17 @@ require('./tasks/ftp')(gulp, $, settings);
 // tasks
 // imagemin&sprite
 gulp.task('img', [
-    'sprite',
-    'imagemin'
+    //'sprite',
+    //'imagemin'
 ]);
 // just watch js & scss
 gulp.task('watch', function () {
-    gulp.watch(settings.srcPath + '/**/*.scss', ['sass']);
-    gulp.watch([settings.srcPath + '/js/demo/*.js', settings.srcPath + '/component/**/*.js'], ['jshint']);
+    // 组件SCSS
+    gulp.watch(settings.srcPath + '/component/**/*.scss', ['sass-component']);
+    // 公用SCSS
+    gulp.watch(settings.srcPath + '/**/*.scss', ['sass-normal']);
+    // jshint
+    gulp.watch([settings.srcPath + '/js/**/*.js', settings.srcPath + '/component/**/*.js'], ['jshint']);
 });
 // watch & browsersunc
 gulp.task('default', [
@@ -100,19 +109,19 @@ gulp.task('run', [
 ]);
 // build to dist
 gulp.task('build', ['cleanDist'], function() {
-    gulp.run('usemin');
+    gulp.run('minifycss','rjs');
     gulp.run('imagemin');
 });
 // build without usemin
 gulp.task('build2', ['cleanDist'], function() {
-    gulp.run('minifycss','uglify','imagemin');
+    //gulp.run('minifycss','uglify','imagemin');
 });
 
 
 // preview dist floder
-//gulp.task('serve', [
-//    'browsersync:dist'
-//]);
+gulp.task('serve', [
+    'browsersync:dist'
+]);
 //
 //// clean demo
 //gulp.task('clean-demo', [

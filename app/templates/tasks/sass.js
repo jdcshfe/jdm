@@ -10,7 +10,7 @@ module.exports = function (gulp, $, settings) {
     var fs = require('fs');
     gulp.task('sass-normal', function () {
         // normal
-        return gulp.src([settings.srcPath + '/scss/*.scss', settings.srcPath + '/scss/*.css'])
+        return gulp.src(settings.srcPath + '/scss/*.scss')
             .pipe($.sourcemaps.init())    // sourcemaps init
             .pipe($.sass({
                 /** outputstyle: default: nested  nested/expanded/compact/compressed
@@ -29,7 +29,7 @@ module.exports = function (gulp, $, settings) {
         var componentList = fs.readdirSync(settings.srcPath + '/component/');
         if (componentList.length > 0) {
             componentList.forEach(function (componentFile) {
-                return gulp.src(settings.srcPath + '/component/' + componentFile + '/*.scss')
+                return gulp.src(settings.srcPath + '/component/' + componentFile + '/**/*.scss')
                     .pipe($.sourcemaps.init())    // sourcemaps init
                     .pipe($.sass({
                         /** outputstyle: default: nested  nested/expanded/compact/compressed
@@ -45,5 +45,5 @@ module.exports = function (gulp, $, settings) {
             });
         }
     });
-    gulp.task('sass', ['sass-normal']);
+    gulp.task('sass', ['sass-normal','sass-component']);
 };

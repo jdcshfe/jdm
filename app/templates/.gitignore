@@ -1,8 +1,0 @@
-node_modules/
-bower_modules/
-component/
-sass-cahce/
-/*.log
-.idea/
-.git/
-/.DS_Store
